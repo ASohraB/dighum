@@ -71,12 +71,18 @@
                 ]
                 packages = [
                     "pandas",
-                    "icecream"
+                    "icecream",
+                    "timeit"
                 ]
             </py-config>
 
             <section class="pyscript">
                 <py-script>
+                    ic(findperson('gs'))
+
+                    #print(timeit('ic("a")'))
+                    #foo = 'bar'
+                    #logger.debug(ic.format(foo))
                     print ("asoooo")
                     import pandas as pd
                     from pyodide.http import open_url
