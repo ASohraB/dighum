@@ -70,18 +70,12 @@
                 "https://pyscript.net/latest/plugins/python/py_tutor.py"
                 ]
                 packages = [
-                    "pandas",
-                    "gradio"
+                    "pandas"
                 ]
             </py-config>
 
             <section class="pyscript">
                 <py-script>
-                    import gradio as gr
-                    def sketch_recognition(img):
-                        pass # Implement your sketch recognition model here...
-                    
-                    gr.Interface(fn=sketch_recognition, inputs="sketchpad", outputs="label").launch()
                     print ("asoooo")
                     import pandas as pd
                     from pyodide.http import open_url
