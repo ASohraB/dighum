@@ -69,11 +69,17 @@
                 plugins = [
                 "https://pyscript.net/latest/plugins/python/py_tutor.py"
                 ]
-                packages = ["pandas"]
+                packages = ["pandas" "panel"]
             </py-config>
 
             <section class="pyscript">
                 <py-script>
+                    import panel as pn
+                    pn.extension()
+                    text_input = pn.widgets.TextInput(name='Text Input', placeholder='Enter a string here...')
+                    text_input
+                    text_input.value
+                    print ("asoooo")
                     import pandas as pd
                     from pyodide.http import open_url
                     import sys
