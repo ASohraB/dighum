@@ -71,47 +71,27 @@
                 ]
                 packages = [
                     "pandas",
-                    "icecream"                ]
+                    "solara"                ]
             </py-config>
 
             <section class="pyscript">
                 <py-script>
-                    from icecream import *
-                    #import timeit
-                    uc=IceCreamDebugger()
-                    tc=IceCreamDebugger()
-                    oc=IceCreamDebugger()
-                    
-                    celscilist = {
-                    'dd':{'fb':{'followers': 400}},
-                    'jp':{'fb':{'followers': 300}},
-                    'sh':{'fb':{'followers': 200}},
-                    'gs':{'fb':{'followers': 100}}
-                    }
-                    
-                    class celsci():
-                    
-                        def famus(x):
-                            y="low"
-                            if x>300:
-                                y= 'high'
-                            return y
-                     
-                    def findperson(x):
-                        person = celsci.famus(celscilist[x]['fb']['followers'])
-                        return person
-                        
-                    
-                    #ic(celsci.person)
-                    ic(findperson('gs'))
-                    #timeit.timeit("print(23)", number=10)        
+                    import solara
+
+                    clicks = solara.reactive(0)
                     
                     
-                    #print(timeit('ic("a")'))
-                    #foo = 'bar'
-                    #logger.debug(ic.format(foo))
-                    #foo = 'bar'
-                    #logger.debug(ic.format(foo))
+                    @solara.component
+                    def Page():
+                        color = "green"
+                        if clicks.value >= 5:
+                            color = "red"
+                    
+                        def increment():
+                            clicks.value += 1
+                            print("clicks", clicks)
+                    
+                        solara.Button(label=f"Clicked: {clicks}", on_click=increment, color=color)
                     print ("asoooo")
                     import pandas as pd
                     from pyodide.http import open_url
